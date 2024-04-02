@@ -23,17 +23,23 @@ export function SearchResult(result: any[]) {
         >
           {r.payload.title}
         </a>
-        <p className="text-gray-300 text-sm mt-2">
+        {/* <p className="text-gray-300 text-sm mt-2">
           <span className="font-bold">Score:</span> {r.score}
           <span className="font-bold ml-4">Project:</span> {r.payload.project}
-        </p>
+        </p> */}
         <div className="mt-2 text-gray-400">
+          <div className="flex flex-row gap-4">
+            <div className="flex-none">
           <Icon result={r} />
+            </div>
+            <div className="flex-grow">
           {lines.map((line: string, index: number) => (
             <p key={index} className="overflow-hidden">
               {line}
             </p>
           ))}
+            </div>
+          </div>
         </div>
       </li>
     );
