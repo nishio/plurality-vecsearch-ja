@@ -10,11 +10,18 @@ function Icon(props: { result: any }) {
 }
 
 export function SearchResult(result: any[]) {
-  const resultDom = result.map((r) => {
+  const resultDom = [] as React.ReactNode[];
+  const titles = [] as string[];
+
+  result.forEach((r) => {
     const lines = r.payload.text.split(/\n/g);
+    if (titles.includes(r.payload.title)) {
+      return;
+    }
+    titles.push(r.payload.title);
 
     // Default: Scrapbox Result
-    return (
+    resultDom.push(
       <li key={r.id} className="border-t border-gray-600 p-4">
         <a
           href={scrapboxUrl(r.payload.project, r.payload.title)}
@@ -30,14 +37,14 @@ export function SearchResult(result: any[]) {
         <div className="mt-2 text-gray-400">
           <div className="flex flex-row gap-4">
             <div className="flex-none">
-          <Icon result={r} />
+              <Icon result={r} />
             </div>
             <div className="flex-grow">
-          {lines.map((line: string, index: number) => (
-            <p key={index} className="overflow-hidden">
-              {line}
-            </p>
-          ))}
+              {lines.map((line: string, index: number) => (
+                <p key={index} className="overflow-hidden">
+                  {line}
+                </p>
+              ))}
             </div>
           </div>
         </div>
