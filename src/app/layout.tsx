@@ -7,8 +7,8 @@ const inter = Inter({ subsets: ["latin"] });
 const PROJECT_NAME = process.env.PROJECT_NAME!;
 
 export const metadata = {
-  title: "omoikane-vecsearch",
-  description: `Vector search on [/${PROJECT_NAME}]`,
+  title: "⿻VecSearchJA",
+  description: `Plurality Vector Search in Japanese on [/${PROJECT_NAME}]`,
 };
 
 export default function RootLayout({
